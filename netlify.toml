@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+# Netlify automatically applies its maintained Next.js adapter.
+# Do not add a catch-all redirect or configure static export.

@@ -1,0 +1,36 @@
+{
+  "name": "aparnex-pharma-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "5.9.1",
+    "next": "16.3.4",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-hook-form": "7.89.0",
+    "three": "0.186.1",
+    "zod": "3.25.76",
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/three": "0.186.0",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "@types/pg": "8.23.1"
+  }
+}
