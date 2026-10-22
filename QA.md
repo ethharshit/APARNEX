@@ -32,3 +32,7 @@ This is a separate deployment package. The earlier Sites/D1 test results do not 
 8. Measure deployed performance/accessibility and approve legal/company content before public indexing.
 
 Actual Netlify deployment, live Supabase/PostgreSQL credentials, email delivery and browser/device QA are not available in this environment. They are not reported as passed.
+
+## 22 October 2026 — UI repair update
+
+Typecheck and production build passed. Rendered-output checks passed for static pages, asset and internal links, one exact general WhatsApp URL per page, product messages and form ARIA references. Original API/database/auth configuration and submission handling were preserved. See CLIENT-REVIEW.md for the detailed changes and verification limits. Browser preview fails because the environment passes unsupported flags to Next.js; the 360/390/768/1440px visual matrix, browser console and live Netlify/Supabase flows remain unverified. This update has not been deployed.
