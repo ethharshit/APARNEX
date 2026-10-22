@@ -1,5 +1,5 @@
 import {isAdmin,json,runtime,sameOrigin} from '@/lib/server';
 import {getBusinessContent} from '@/lib/cms';
 import {businessContentSchema} from '@/lib/business-content';
-export async function GET(){if(!await isAdmin())return json({error:'Not authorised.'},403);return json(await getBusinessContent())}
+export async function GET(){if(!await isAdmin())return json({error:'Not authorised.'},403);return json(await getBusinessContent(false))}
 export async function PATCH(request:Request){if(!await isAdmin()||!sameOrigin(request))return json({error:'Not authorised.'},403);try{const raw=await request.text();if(raw.length>5000)return json({error:'Content is too long.'},413);const data=businessContentSchema.safeParse(JSON.parse(raw));if(!data.success)return json({error:'Use an introduction of 10–600 characters and up to six areas, with titles of 2–80 characters and descriptions up to 200 characters.'},400);await runtime().DB.prepare('INSERT INTO content_settings (key,value,updated_at) VALUES (?,?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=excluded.updated_at').bind('business',JSON.stringify(data.data),new Date().toISOString()).run();return json({ok:true})}catch{return json({error:'Unable to save content.'},503)}}

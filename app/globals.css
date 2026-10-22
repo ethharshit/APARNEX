@@ -88,3 +88,62 @@ footer{padding-bottom:112px}
  .brand-statement h2{font-size:clamp(46px,12vw,64px)}
  .principle-strip{font-size:7px;gap:12px}
 }
+/* Completed public content, SVG controls, staff workspace and WhatsApp help. */
+.icon{display:inline-block;flex:none;vertical-align:middle;width:20px;height:20px}
+.button .icon,.secondary-button .icon{width:20px;height:20px}
+.menu-toggle{align-items:center;gap:8px}.menu-toggle .icon{width:18px;height:18px}
+.footer-company{font-weight:600;color:var(--navy);margin:14px 0 8px!important}
+.footer-top>div:first-child>p{max-width:340px}
+.cta h2{max-width:760px;font-size:clamp(34px,3.6vw,54px)}
+.cta-actions{display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.cta-actions .button{margin:0;min-width:190px}
+.journey-foundation{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.journey-foundation h2{margin-bottom:0}.journey-foundation p+p{margin-top:20px}
+.journey-symbol{width:68px;height:68px;border:1px solid #b6d6de;border-radius:50%;display:grid;place-items:center;margin-bottom:24px;color:var(--cyan)}
+.journey-symbol .icon{width:30px;height:30px}
+.map-cross .icon{width:52px;height:52px}
+.orbit-icon .icon{width:38px;height:38px}.tiny-cross .icon{width:28px;height:28px}
+.card-top .icon{width:34px;height:34px;color:var(--cyan)}
+.principle-strip .icon{width:14px;height:14px}
+.product-copy details[open] summary .icon{transform:rotate(45deg)}
+.product-whatsapp{margin:16px 0 0!important;justify-content:space-between;min-height:44px}
+.enquiry-form>.small a,.legal a{text-decoration:underline;text-underline-offset:3px}
+.social-action:hover,.footer-contact>a:hover{color:var(--navy);text-decoration:underline;text-underline-offset:4px}
+.icon-button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:transparent;border:1px solid var(--line);border-radius:3px;color:var(--navy);flex:none}
+.whatsapp-widget{position:fixed;z-index:25;right:calc(22px + env(safe-area-inset-right,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+.whatsapp-widget[hidden]{display:none}
+.whatsapp-widget .floating-whatsapp{position:static;display:flex;align-items:center;gap:12px;width:auto;height:56px;padding:0;border:0;border-radius:28px;background:transparent;box-shadow:none;color:var(--ink)}
+.whatsapp-widget .floating-whatsapp:hover{background:transparent}
+.whatsapp-toggle-icon{width:56px;height:56px;border-radius:50%;background:#128c42;color:white;display:grid;place-items:center;border:2px solid white;box-shadow:0 4px 18px #0a482b35}
+.whatsapp-toggle-icon .icon,.whatsapp-toggle-icon svg{width:27px;height:27px}
+.whatsapp-widget .floating-whatsapp:hover .whatsapp-toggle-icon{background:#0d7135}
+.whatsapp-label{font-size:12px;background:white;border:1px solid var(--line);padding:9px 12px;border-radius:4px;box-shadow:0 2px 8px #063b6614}
+.whatsapp-panel{position:absolute;right:0;bottom:74px;width:350px;max-width:calc(100vw - 44px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px));max-height:calc(100dvh - 122px - env(safe-area-inset-bottom,0px));overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;background:white;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 45px #063b6630;padding:24px}
+.whatsapp-panel-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px}
+.whatsapp-panel-top>img{width:160px;max-width:calc(100% - 64px);height:auto}
+.whatsapp-panel h2{font-size:26px;letter-spacing:-.03em;margin:12px 0 16px}
+.whatsapp-panel p{font-size:13px}.whatsapp-panel .eyebrow{font-size:9px}
+.whatsapp-panel .whatsapp-chat{display:flex;justify-content:center;background:#128c42;border-color:#128c42;width:100%;gap:10px;margin:22px 0 12px}
+.whatsapp-number{display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--navy);font-size:14px}
+.whatsapp-panel>.small{text-align:center;margin-top:7px}
+.staff-form{max-width:500px}.staff-form>.text-link{margin-top:20px}
+.staff-dashboard{margin-top:30px}.admin-page{padding-top:65px}
+.summary-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:24px}
+.summary-grid article{padding:20px;background:var(--pale);border:1px solid var(--line);border-radius:4px;min-width:0}
+.summary-grid span{display:block;font-size:12px}.summary-grid strong{display:block;font-size:30px;font-weight:500;color:var(--navy);margin-top:12px}
+.admin-toolbar{align-items:flex-end;flex-wrap:wrap}.admin-toolbar>label{flex:1;min-width:180px}.admin-toolbar>label:first-child{flex:2;min-width:230px}
+.admin-toolbar input,.admin-toolbar select{margin-top:8px;min-height:46px}
+.secondary-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 16px;background:white;border:1px solid var(--line);border-radius:3px;font-size:12px;color:var(--navy)}
+.admin-feedback{min-height:24px;font-size:13px}
+.admin-table:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+.admin-table th,.admin-table td{max-width:280px;overflow-wrap:anywhere}
+.admin-table td>a{display:inline-flex;min-height:32px;align-items:center;text-decoration:underline}
+.lead-detail:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+.lead-detail h3{font-size:20px;margin-top:28px}.lead-detail .section-heading{align-items:flex-start}
+.followup-links{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}.followup-links .button{justify-content:center}
+.admin-actions{align-items:stretch}.pagination .secondary-button{min-width:100px}
+@media(max-width:1100px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.menu-toggle{display:flex}.journey-foundation{grid-template-columns:1fr;gap:30px}.cta-actions{margin-top:26px;align-items:flex-start}.cta .cta-actions .button{margin:0}.admin-page{padding-top:45px}.whatsapp-label{font-size:11px}}
+@media(max-width:639px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.summary-grid article{padding:15px}.summary-grid article:first-child{grid-column:1/-1}.admin-toolbar>label,.admin-toolbar>label:first-child{min-width:0;flex-basis:100%}.admin-toolbar>.button,.admin-toolbar>.secondary-button{flex:1}.admin-table th,.admin-table td{padding:14px}.lead-detail .section-heading{display:flex;gap:14px;flex-wrap:wrap}.lead-detail dl{grid-template-columns:1fr}.whatsapp-panel{padding:20px}.whatsapp-label{max-width:205px}}
+@media(max-height:500px){.whatsapp-label{display:none}.whatsapp-panel{padding:16px}.whatsapp-panel-top{margin-bottom:12px}.whatsapp-panel h2{margin:10px 0;font-size:22px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-widget *{transition:none!important;animation:none!important}}

@@ -3,6 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
 import {SocialLinks} from '@/components/social-links';
 import {BrandLogo} from '@/components/brand-logo';
+import {Icon} from '@/components/icons';
 import {nav,site} from '@/lib/content';
 
 export function Header() {
@@ -18,13 +19,14 @@ export function Header() {
     document.addEventListener('keydown',key);document.addEventListener('pointerdown',outside);window.addEventListener('resize',resize);
     return()=>{document.removeEventListener('keydown',key);document.removeEventListener('pointerdown',outside);window.removeEventListener('resize',resize);};
   },[open]);
-  return <header className="header" ref={header}><a href="/" className="logo" aria-label="APARNEX PHARMA LLP home"><BrandLogo priority/></a><button id="menu-toggle" className="menu-toggle" aria-expanded={open} aria-controls="navigation" onClick={()=>setOpen(!open)}>{open?'Close ×':'Menu ☰'}</button><nav id="navigation" aria-label="Main navigation" className={open?'open':''} onClick={()=>setOpen(false)} onBlur={event=>{if(!header.current?.contains(event.relatedTarget as Node))setOpen(false);}}>{nav.map(([name,url])=><a key={url} href={url} aria-current={pathname===url?'page':undefined} className={name==='Enquiry'?'nav-cta':''}>{name}{name==='Enquiry'&&<span aria-hidden="true">↗</span>}</a>)}</nav></header>;
+  return <header className="header" ref={header}><a href="/" className="logo" aria-label="APARNEX PHARMA LLP home"><BrandLogo priority/></a><button id="menu-toggle" className="menu-toggle" aria-expanded={open} aria-controls="navigation" onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}<Icon name={open?'close':'menu'}/></button><nav id="navigation" aria-label="Main navigation" className={open?'open':''} onClick={()=>setOpen(false)} onBlur={event=>{if(!header.current?.contains(event.relatedTarget as Node))setOpen(false);}}>{nav.map(([name,url])=><a key={url} href={url} aria-current={pathname===url?'page':undefined} className={name==='Enquiry'?'nav-cta':''}>{name==='Enquiry'?'Enquire Now':name}{name==='Enquiry'&&<Icon name="arrow"/>}</a>)}</nav></header>;
 }
 export function Intro() {
+  const path=usePathname();
   const [show,setShow]=useState(false);
   useEffect(()=>{
     const motion=matchMedia('(prefers-reduced-motion: reduce)');
-    try {if(!sessionStorage.getItem('aparnex-intro')&&!motion.matches){setShow(true);sessionStorage.setItem('aparnex-intro','1');}}catch{}
+    try {if(!path.startsWith('/admin')&&!sessionStorage.getItem('aparnex-intro')&&!motion.matches){setShow(true);sessionStorage.setItem('aparnex-intro','1');}}catch{/* The decorative entrance is optional when browser storage is unavailable. */}
     const dismiss=()=>setShow(false);
     const timer=window.setTimeout(dismiss,2000);
     document.addEventListener('pointerdown',dismiss,{once:true});document.addEventListener('keydown',dismiss,{once:true});motion.addEventListener('change',dismiss);
@@ -32,4 +34,4 @@ export function Intro() {
   },[]);
   return show?<div className="intro" aria-hidden="true" onAnimationEnd={event=>{if(event.target===event.currentTarget)setShow(false);}}><div className="intro-card"><BrandLogo priority/></div><p>APARNEX PHARMA LLP</p></div>:null;
 }
-export function Footer(){return <footer><div className="footer-top"><div><a className="logo footer-logo" href="/" aria-label="APARNEX PHARMA LLP home"><BrandLogo/></a><p>A considered approach.<br/>A healthcare-focused future.</p></div><div><span className="eyebrow">EXPLORE</span>{nav.map(([name,url])=><a key={url} href={url}>{name}</a>)}</div><div><span className="eyebrow">START A CONVERSATION</span><address className="footer-contact"><p>{site.address}</p><a href={'tel:'+site.phoneHref}>{site.phone}</a><a href={'mailto:'+site.email}>{site.email}</a></address><SocialLinks/></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} APARNEX PHARMA LLP</span><span><a href="/privacy">Privacy & information</a><a href="/admin">Staff access ↗</a></span></div><p className="draft-note">Company positioning is draft content pending approval. Business activities and people profiles will be published when confirmed. No medical advice is provided.</p></footer>}
+export function Footer(){return <footer><div className="footer-top"><div><a className="logo footer-logo" href="/" aria-label="APARNEX PHARMA LLP home"><BrandLogo/></a><p className="footer-company">APARNEX PHARMA LLP</p><p>Building trusted pharmaceutical partnerships through professionalism, responsive communication, and responsible growth.</p></div><div><span className="eyebrow">EXPLORE</span>{nav.map(([name,url])=><a key={url} href={url}>{name}</a>)}</div><div><span className="eyebrow">START A CONVERSATION</span><address className="footer-contact"><p>{site.address}</p><a href={'tel:'+site.phoneHref}>{site.phone}</a><a href={'mailto:'+site.email}>{site.email}</a></address><SocialLinks/></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} APARNEX PHARMA LLP</span><span><a href="/privacy">Privacy & Information</a><a href="/admin">Staff access</a></span></div></footer>}
