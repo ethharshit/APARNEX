@@ -1,3 +1,11 @@
+# Current verification
+
+See [PRODUCTION_READINESS.md](PRODUCTION_READINESS.md) for the current results and launch gates. Typecheck, ESLint, 18 tests and the production build pass. Browser and live-integration verification remain outstanding.
+
+---
+
+## Historical QA notes
+
 # Netlify edition QA
 
 This is a separate deployment package. The earlier Sites/D1 test results do not certify the new PostgreSQL/Supabase integrations.

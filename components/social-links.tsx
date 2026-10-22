@@ -1,5 +1,6 @@
 "use client";
-import {useEffect, useState} from 'react';
+
+import {Icon} from '@/components/icons';
 import {instagramUrl, linkedInUrl, whatsappUrl} from '@/lib/social';
 
 export function WhatsAppIcon() {
@@ -9,19 +10,8 @@ function InstagramIcon() { return <svg viewBox="0 0 24 24" width="24" height="24
 export function SocialLinks() {
   return <div className="social-links">
     <a className="social-action whatsapp-contact" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at +91 7700022235 (opens in a new tab)"><WhatsAppIcon/><span className="social-copy"><span>Chat on WhatsApp</span><span className="social-number">+91 7700022235</span></span></a>
-    <a className="social-action" href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="APARNEX PHARMA on Instagram (opens in a new tab)"><InstagramIcon/><span>Instagram <span aria-hidden="true">↗</span></span></a>
-    {linkedInUrl && <a className="social-action" href={linkedInUrl} target="_blank" rel="noopener noreferrer" aria-label="APARNEX PHARMA on LinkedIn (opens in a new tab)"><span className="social-monogram" aria-hidden="true">in</span><span>LinkedIn ↗</span></a>}
-    <a className="social-action" href="/enquiry"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Connect with us <span aria-hidden="true">↗</span></span></a>
+    <a className="social-action" href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="APARNEX PHARMA on Instagram (opens in a new tab)"><InstagramIcon/><span>Instagram <Icon name="arrow"/></span></a>
+    {linkedInUrl && <a className="social-action" href={linkedInUrl} target="_blank" rel="noopener noreferrer" aria-label="APARNEX PHARMA on LinkedIn (opens in a new tab)"><span className="social-monogram" aria-hidden="true">in</span><span>LinkedIn <Icon name="arrow"/></span></a>}
+    <a className="social-action" href="/enquiry"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Connect with us <Icon name="arrow"/></span></a>
   </div>;
-}
-export function FloatingWhatsApp() {
-  const [hidden, setHidden] = useState(false);
-  useEffect(() => {
-    const update = () => setHidden(!!document.querySelector('.header nav.open, dialog[open], [aria-modal="true"]') || !!document.activeElement?.matches('input,textarea,select'));
-    const observer = new MutationObserver(update);
-    observer.observe(document.body, {subtree: true, attributes: true, attributeFilter: ['class', 'open', 'aria-modal']});
-    document.addEventListener('focusin', update); document.addEventListener('focusout', update); update();
-    return () => {observer.disconnect(); document.removeEventListener('focusin', update); document.removeEventListener('focusout', update);};
-  }, []);
-  return <a className="floating-whatsapp" hidden={hidden} href={whatsappUrl()} target="_blank" rel="noopener noreferrer" aria-label="Chat with APARNEX PHARMA on WhatsApp (opens in a new tab)"><WhatsAppIcon/></a>;
 }

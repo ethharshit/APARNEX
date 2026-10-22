@@ -1,5 +1,6 @@
 import type {ReactNode} from 'react';
-export function Arrow(){return <span aria-hidden>↗</span>}
-export function CTA(){return <section className="cta section"><div><span className="eyebrow">A CONVERSATION CAN BE THE BEGINNING</span><h2>Better possibilities.<br/>Built together.</h2><p>Let's build a meaningful healthcare partnership.</p></div><a href="/enquiry" className="button light">Enquire Now <Arrow/></a></section>}
+import {Icon} from '@/components/icons';
+import {whatsappUrl} from '@/lib/social';
+export function Arrow(){return <Icon name="arrow"/>}
+export function CTA(){return <section className="cta section"><div><span className="eyebrow">LET’S CONNECT</span><h2>Let’s explore how we can work together.</h2><p>Have a product enquiry or business requirement? Connect with APARNEX PHARMA LLP to discuss your needs.</p></div><div className="cta-actions"><a href="/enquiry" className="button">Send an Enquiry <Arrow/></a><a href={whatsappUrl()} className="button light" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <Arrow/></a></div></section>}
 export function PageIntro({label,title,children}:{label:string,title:ReactNode,children:ReactNode}){return <section className="page-intro section"><div className="eyebrow">APARNEX / {label}</div><h1>{title}</h1><p>{children}</p></section>}
-export function Draft({children='Proposed company positioning · Pending approval'}:{children?:ReactNode}){return <span className="draft">{children}</span>}

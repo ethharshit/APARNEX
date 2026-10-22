@@ -4,7 +4,7 @@
 public/aparnex-logo-display.webp: lossless crop of only blank margins from public/aparnex-logo.jpeg, coordinates (64, 160, 1536, 592). No logo pixels were redrawn, recoloured, resampled or changed. The original remains unchanged. This display asset is used by components/brand-logo.tsx.
 
 ## Illustrative company image
-Final project asset: public/company-concept.webp (1448 × 1086). Generated with the built-in image-generation tool, then encoded as a separate optimized WebP copy. It is fictional, has no lettering or logo, and is visibly captioned “Illustrative company image”.
+Final project asset: public/company-concept.webp (1448 × 1086). Generated with the built-in image-generation tool, then encoded as a separate optimized WebP copy. It is fictional, has no lettering or logo, and is visibly captioned “Illustrative image”.
 
 Generation prompt:
 
